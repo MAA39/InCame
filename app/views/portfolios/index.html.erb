@@ -1,0 +1,33 @@
+<h2>ポートフォリオ一覧</h2>
+<div class="row">
+  <div class ="col-md-12">
+    <table class ="table table-striped">
+      <thead class ="thead-light">
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Menu</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @portfolios.each do |portfolio| %>
+        <tr>
+          
+          <td><%= portfolio.id %></td>
+          <td><%= link_to portfolio.title,  portfolio_path(portfolio) %></td>
+          <td>
+          [<%= link_to 'Edit', edit_portfolio_path(portfolio) %>]
+          [<%= link_to 'Delete', portfolio_path(portfolio), method: :delete, data:{ confirm: 'Are you sure?'}%>]</td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <dvi>
+      <%= link_to 'New portfolio' , new_portfolio_path %>
+    </dvi>
+  </div>
+  
+  
+  
+  
+</div>
